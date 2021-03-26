@@ -10,6 +10,28 @@
   </head>
 
   <body>
+
+    <!--ここから手動で追記------------------------------------------------------------------>
+     <% if user_signed_in? %>
+      <li>
+        <%= link_to "ログアウト",  destroy_user_session_path,  method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録",  new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン",  new_user_session_path %>
+      </li>
+    <% end %>
+
+    <!--ここまで手動で追記------------------------------------------------------------------>
     <%= yield %>
+
+    <footer>
+     <div class="wrapper">
+      <p><small>&copy; Otinu</small></p>
+     </div>
+    </footer>
   </body>
 </html>
