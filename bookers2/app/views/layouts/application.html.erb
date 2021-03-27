@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <% if flash[:notice] %>
+     <h4><%= flash[:notice] %></h4>
+    <% end %>
+
   <body>
 
     <!--ここから手動で追記------------------------------------------------------------------>
@@ -46,6 +50,7 @@
         <%= link_to "login",  new_user_session_path %>
       </li>
     <% end %>
+
    </header>
 
     <!--ここまで手動で追記------------------------------------------------------------------>
