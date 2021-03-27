@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :books, only: [ :index,  :show, :create, :update, :edit, :destroy]
 
   resources :users, only: [:index, :show, :edit, :update]
+  patch 'users_path' => 'users#show'
 #ここから手動で追記=============================================
 
 end
