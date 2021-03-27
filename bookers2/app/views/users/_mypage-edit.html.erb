@@ -12,7 +12,8 @@
    </tr>
 </table>
 
-
-<%= link_to edit_user_path(@user) do %>
- <%= image_tag('edit_mypage.jpeg',size: '70x60') %>
-<% end %>
+<% if @user.id == current_user.id %> <!--途中から追記。検証はまだしていない-->
+  <%= link_to edit_user_path(@user) do %>
+   <%= image_tag('edit_mypage.jpeg',size: '70x60') %>
+  <% end %>
+<% end %>   <!--途中から追記。検証はまだしていない-->
