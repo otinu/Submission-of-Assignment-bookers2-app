@@ -1,3 +1,5 @@
+
+
 <h3>Books</h3>
 <table>
   <thead>
@@ -10,19 +12,21 @@
 
   <tbody>
    <% @book.each do |f| %>
-    <tr>
-     <% if f.user.id == current_user.id %>
-       <td><%= attachment_image_tag f.user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %></td>
-       <td><%= f.title %></td>
-       <td><%= f.body %></td>
-     <% end %>
-    </tr>
+
+   <tr>
+    <td><%= attachment_image_tag f.user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %></td>
+    <td><%= f.title %></td>
+    <td><%= f.body %></td>
+  </tr>
+
    <% end %>
   </tbody>
 </table>
 
 <%= render 'users/mypage-edit', user: @user %>
 <%= render 'books/newbook', book: Book %>
+
+
 
 
 
