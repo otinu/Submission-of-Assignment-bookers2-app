@@ -14,7 +14,7 @@
    <% @book.each do |f| %>
 
    <tr>
-    <td><%= attachment_image_tag f.user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %></td>
+    <td><%= attachment_image_tag f.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %></td>
     <td><%= f.title %></td>
     <td><%= f.body %></td>
   </tr>
