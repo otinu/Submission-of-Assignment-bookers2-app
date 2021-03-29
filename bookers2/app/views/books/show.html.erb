@@ -1,2 +1,13 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+<h2>Book detail</h2>
+
+<table>
+  <tr>
+    <th>
+      <%= attachment_image_tag @user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+      <%= link_to @user.name, user_path(@user.id) %>
+    </th>
+    <th><%= link_to @book.title, book_path(@book.id) %></th>
+    <th><%= @book.body %></th>
+  </tr>
+</table>
