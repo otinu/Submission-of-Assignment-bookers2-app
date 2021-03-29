@@ -11,14 +11,13 @@
   </thead>
 
   <tbody>
-   <% @book.each do |f| %>
 
+   <% @user_book.each do |f| %>
    <tr>
-    <td><%= attachment_image_tag f.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %></td>
+    <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %></td>
     <td><%= f.title %></td>
     <td><%= f.body %></td>
   </tr>
-
    <% end %>
   </tbody>
 </table>

@@ -9,7 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @book = Book.where(user_id: current_user.id)
+    if @user.id == current_user.id
+       @user_book = Book.where(user_id: current_user.id)
+    else
+       @user_book = Book.where(user_id: params[:id])
+    end
   end
 
   def edit
