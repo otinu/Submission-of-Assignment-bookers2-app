@@ -3,15 +3,15 @@ class BooksController < ApplicationController
   def index
       @book = Book.new
      @books = Book.all
-     
+
 
   end
 
   def show
-     book = Book.joins("LEFT OUTER JOIN users ON books.user_id = users.id ")
+     #book = Book.joins("LEFT OUTER JOIN users ON books.user_id = users.id ")
     @book = Book.find(params[:id])
     #@user = User.find_by(id: params[:Book.user_id])
-    
+
     @user = User.find(params[:user_id])
   end
 
