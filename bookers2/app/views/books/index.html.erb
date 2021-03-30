@@ -12,11 +12,12 @@
   <% @books.each do |f| %>
    <tr>
       <td>
-        <%= link_to user_path(f.user_id) do %>
-        <%= attachment_image_tag f.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
+        <%= link_to user_path(f.id) do %> <!--元々、引数は「f.user_id」だった。後からbooksテーブルのuser_idに外部キー制約を付与したところ、現状の記述でのアクセスが可能となった-->
+        <%= attachment_image_tag f.user_id, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
+        <!-- ここにユーザーの名前を表示させるようにしたい------------------------>
         <% end %>
        </td>
-      <td><%= link_to f.title, book_path(f.user_id,f.id) %></td>
+      <td><%= link_to f.title, book_path(f.id,f.user_id) %></td>
       <td><%= f.body %></td>
     </td>
    </tr>
