@@ -1,11 +1,10 @@
 
 <h2>Book detail</h2>
-
 <table>
   <tr>
     <th>
-      <%= attachment_image_tag @user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %>
-      <%= link_to @user.name, user_path(@user.id) %>
+      <%= attachment_image_tag @book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
+      <%= link_to @book.user.name, user_path(current_user.id) %>
     </th>
     <th><%= link_to @book.title, book_path(@book.id) %></th>
     <th><%= @book.body %></th>
