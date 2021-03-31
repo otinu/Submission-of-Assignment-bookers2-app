@@ -8,5 +8,16 @@
     </th>
     <th><%= link_to @book.title, book_path(@book.id) %></th>
     <th><%= @book.body %></th>
+    <th>
+      <% if @book.user_id == current_user.id %>
+       <%= link_to "Edit", edit_book_path(@book.id) %>
+      <% end %>
+    </th>
+    <th>
+      <% if @book.user_id == current_user.id %>
+       <%= link_to "Destroy", book_path(@book.id), method: :delete, data: { confirm: '削除を実行しますか？', commit: '削除', cancel: 'キャンセル'  } %>
+      <% end %>
+    </th>
   </tr>
 </table>
+

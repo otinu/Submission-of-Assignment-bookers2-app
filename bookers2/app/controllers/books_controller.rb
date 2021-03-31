@@ -6,11 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    #@user = User.find_by(params[:user_id])
     @book = Book.joins(:user).find(params[:id])
-
-
-    #@user = User.find(params[:id])
   end
 
   def create
@@ -26,12 +22,25 @@ class BooksController < ApplicationController
   end
 
   def update
+      book = Book.find(params[:id])
+    if book.update(book_params)
+      flash[:notice] = "successfully!"
+      redirect_to book_path
+    else
+      flash[:notice] = "error / can't be blank"
+      render action: :edit
+    end
   end
 
+
   def edit
+    @book = Book.find(params[:id])
   end
 
   def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
   end
 
   private

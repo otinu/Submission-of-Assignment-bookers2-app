@@ -12,9 +12,8 @@
   <% @books.each do |f| %>
    <tr>
       <td>
-        <%= link_to user_path(f.user_id) do %> <!--元々、引数は「f.user_id」だった。後からbooksテーブルのuser_idに外部キー制約を付与したところ、現状の記述でのアクセスが可能となった-->
+        <%= link_to user_path(f.user_id) do %>
         <%= attachment_image_tag f.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
-        <%= f.user.name %>
         <% end %>
 
        </td>
