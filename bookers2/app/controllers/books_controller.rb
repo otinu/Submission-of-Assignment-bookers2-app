@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-      @book = Book.new
+     @book = Book.new
      @books = Book.joins(:user).all
   end
 

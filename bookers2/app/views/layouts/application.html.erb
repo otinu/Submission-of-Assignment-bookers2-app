@@ -61,8 +61,14 @@
  <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
 
-
+ <div class="container"> <!-- ここで各ページのbody内のコンテンツを中央寄せ-->
+  <div class="row">
+   <div class="col-auto">
     <%= yield %>
+  </div>
+ </div>
+</div>
+
 
     <footer>
       <p><small>&copy; Otinu</small></p>
