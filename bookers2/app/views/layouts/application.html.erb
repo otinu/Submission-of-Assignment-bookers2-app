@@ -25,8 +25,8 @@
             <caption>Let's share our books</caption> <!-- テーブルに見出しを付与できる-->
                                                     <!-- Googleフォントを適用。application.cssと上記headタグ内の記述確認-->
                <tr>
-                <th><i class="fas fa-house-user"></i><%= link_to "Home", user_path(current_user.id) %></th>
-                <th><i class="fas fa-user-friends"></i><%= link_to "Users", users_path %></th>
+                <th><i class="fas fa-home"></i><%= link_to "Home", user_path(current_user.id) %></th>
+                <th><i class="fas fa-users"></i><%= link_to "Users", users_path %></th>
                 <th><i class="fas fa-book-open"></i><%= link_to "Books", books_path %></th>
                 <th><i class="fas fa-sign-out-alt"></i><%= link_to "logout",  destroy_user_session_path,  method: :delete %></th>
                </tr>
@@ -45,9 +45,9 @@
      <div class="col-lg-8">
          <table class="table table-hover">
                <tr>
-                <th><i class="fas fa-house-user"></i><%= link_to "Home", root_path %></th>
-                <th><i class="far fa-copyright"></i><%= link_to "About", about_path %></th>
-                <th><i class="fas fa-clipboard-list"></i><%= link_to "sign up",  new_user_registration_path %></th>
+                <th><i class="fas fa-home"></i></i><%= link_to "Home", root_path %></th>
+                <th><i class="fas fa-link"></i><%= link_to "About", about_path %></th>
+                <th><i class="fas fa-user-plus"></i></i><%= link_to "sign up",  new_user_registration_path %></th>
                 <th><i class="fas fa-sign-in-alt"></i><%= link_to "login",  new_user_session_path %></th>
                </tr>
            </table>
