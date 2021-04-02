@@ -1,3 +1,14 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+caption {
+  //ここからGoogleFonts----------------------------------
+  font-family: 'Abhaya Libre', serif;
+  font-family: 'Alex Brush', cursive;
+  font-family: 'Bad Script', cursive;
+  font-family: 'Ubuntu', sans-serif;
+  //ここまでGoogleFonts----------------------------------
+
+  font-size: 30px;
+}

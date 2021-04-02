@@ -1,26 +1,37 @@
-<h3>Users</h3>
 
-<table>
-    <thead>
-     <tr>
-      <th>image</th>
-      <th>name</th>
-      <th></th>
-     </tr>
-    </thead>
-    <tbody>
-     <% @users.each do |f| %>
-      <tr>
-       <td><%= attachment_image_tag f, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %></td>
-       <td><%= f.name %></td>
-       <td><%= link_to "show", user_path(f.id) %></td>
-      </tr>
-     <% end %>
-   </tbody>
-</table>
 
-<%= render 'users/mypage-edit', user: @user %>
-<%= render 'books/newbook', book: Book %>
+<div class="container">
+  <div class="row">
+   <div class="col-xl-4">
+    <h3>Users</h3>
+    <table>
+      <thead>
+       <tr>
+        <th>image</th>
+        <th>name</th>
+        <th></th>
+       </tr>
+      </thead>
+     <tbody>
+      <% @users.each do |f| %>
+       <tr>
+        <td><%= attachment_image_tag f, :profile_image, :fill, 30, 30, fallback: "no_image.jpg", size: "50x50" %></td>
+        <td><%= f.name %></td>
+        <td><%= link_to "show", user_path(f.id) %></td>
+       </tr>
+      <% end %>
+     </tbody>
+   </table>
+  </div><!-- col-lg-3 -->
+
+   <div class="col-xl-4">
+    <%= render 'users/mypage-edit', user: @user %>
+    <%= render 'books/newbook', book: Book %>
+   <div class="col-xl-4">
+
+
+ </div><!--row-->
+</div><!--container-->
 
 
 

@@ -1,5 +1,5 @@
-<h1>User info</h1>
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+<h3>User info</h3>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: '110x110' %>
 
 <table>
    <tr>
@@ -14,10 +14,13 @@
 
 <% if user.id == current_user.id %>
   <%= link_to edit_user_path(user.id) do %>
-   <%= image_tag('edit_mypage.jpeg',size: '70x60') %>
+   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br> <!--FontAwesomeの大きさと色を変更-->
+   <p>プロフィール編集</p>
   <% end %>
 <% else %>
-  <%= link_to user_path(current_user.id) do %>
-  <%= image_tag('edit_mypage.jpeg',size: '70x60') %>
-  <% end %>
+   <%= link_to edit_user_path(current_user.id) do %>
+   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
+   <p>マイページ編集へ移動</p>
+   <% end %>
 <% end %>
+
