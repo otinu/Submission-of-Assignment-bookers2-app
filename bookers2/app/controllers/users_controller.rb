@@ -18,15 +18,19 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+     if current_user.id == @user.id
+     else
+      redirect_to user_path(current_user.id)
+     end
   end
 
   def update
-    user = User.find(params[:id])
-    if user.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       flash[:notice] = "successfully!"
       redirect_to user_path
     else
-      flash[:notice] = "error / can't be blank"
+      flash[:notice] = "The title is too short (minimum is 2 characters) or somewhere blank"
       render action: :edit
     end
   end
