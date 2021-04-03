@@ -12,18 +12,16 @@
    </tr>
 </table>
 
-<% if (controller_path == "books" && action_name == "show") %>
+
+
+  <% if (controller_path == "books" && action_name == "show") %>
+   <%= link_to edit_user_path(current_user.id) do %>
+    <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
+    <p>プロフィール編集</p>
+   <% end %>
+  <% else %>
   <%= link_to user_path(current_user.id) do %>
    <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
    <p>マイページ</p>
   <% end %>
-<% else %>
-  <%= link_to edit_user_path(current_user.id) do %>
-   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
-   <p>プロフィール編集</p>
-  <% end %>
-<% end %>
-
-
-
-
+ <% end %>
