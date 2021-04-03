@@ -12,15 +12,18 @@
    </tr>
 </table>
 
-<% if user.id == current_user.id %>
-  <%= link_to edit_user_path(user.id) do %>
-   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br> <!--FontAwesomeの大きさと色を変更-->
-   <p>プロフィール編集</p>
+<% if (controller_path == "books" && action_name == "show") %>
+  <%= link_to user_path(current_user.id) do %>
+   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
+   <p>マイページ</p>
   <% end %>
 <% else %>
-   <%= link_to edit_user_path(current_user.id) do %>
+  <%= link_to edit_user_path(current_user.id) do %>
    <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
-   <p>マイページ編集へ移動</p>
-   <% end %>
+   <p>プロフィール編集</p>
+  <% end %>
 <% end %>
+
+
+
 
