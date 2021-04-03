@@ -7,12 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--GoogleFonts-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %><!--GoogleFonts-->
     <%=  favicon_link_tag 'book_fav.png', type: 'image/png', sizes: "16x16" %><!-- ファビコン-->
-
   </head>
 
  <header style="background-color: DarkSeaGreen;">
-
-
     <% if user_signed_in? %>
      <div class="container">
        <div class="row">　<!--rowにstyleを適用させてmarginやpaddingを変更することはできなかった-->
@@ -42,9 +39,8 @@
         <div class="col-md-4">
           <h2><i class="fas fa-book"></i><%= link_to "Bookers", root_path %></h2>
         </div>
-
-     <div class="col-md-8">
-         <table class="table table-hover">
+        <div class="col-md-8">
+           <table class="table table-hover">
                <tr>
                 <th><i class="fas fa-home"></i></i><%= link_to "Home", root_path %></th>
                 <th><i class="fas fa-link"></i><%= link_to "About", about_path %></th>
@@ -58,20 +54,20 @@
     <% end %>
  </header>
 
- <div class="notice"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
+ <div class="notice"><%= notice %></div> <!--フラッシュメッセージ-->
+ <div class="alert"><%= alert %></div>   <!--フラッシュメッセージ-->
 
- <div class="container"> <!-- ここで各ページのbody内のコンテンツを中央寄せ-->
+ <div class="container">
   <div class="row">
    <div class="col-md-auto">
     <%= yield %>
+   </div>
   </div>
  </div>
-</div>
 
 
-    <footer>
-      <p><small>&copy; Otinu</small></p>
-    </footer>
-  </body>
+  <footer>
+    <p><small>&copy; Otinu</small></p>
+  </footer>
+ </body>
 </html

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update]
   patch 'users_path' => 'users#show'
-#ここから手動で追記=============================================
+#ここまで手動で追記=============================================
 
 end
