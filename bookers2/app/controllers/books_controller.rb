@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
-    book.user_id = current_user.id #ストロングパラメータには、titleとbodyしか指定していない。そのため、この行がないとデータをどこへコミットすればいいか分からず、最終的にデータはどこにも格納されないでリダイレクトされる。
+    book.user_id = current_user.id #joinsを使わなくとも、current_userが活用できる場合はこのような方法も可
     if book.save
       flash[:notice] = "successfully!"
       redirect_to book_path(book.id)
@@ -38,13 +38,6 @@ class BooksController < ApplicationController
       render action: :edit
     end
   end
-
-
-
-
-
-
-
 
   def destroy
     book = Book.find(params[:id])
