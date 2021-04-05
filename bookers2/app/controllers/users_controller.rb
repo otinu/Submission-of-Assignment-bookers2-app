@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def index
     @user = current_user
     @users = User.all
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       flash[:notice] = "successfully!"
       redirect_to user_path
     else
-      flash[:notice] = "The title is too short (minimum is 2 characters) or somewhere blank"
+      flash[:alert] = "The title is too short (minimum is 2 characters) or somewhere blank"
       render action: :edit
     end
   end

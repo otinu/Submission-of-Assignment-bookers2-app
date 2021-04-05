@@ -19,6 +19,26 @@
   @import 'font-awesome';
   @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Alex+Brush&family=Bad+Script&family=Ubuntu:wght@300&display=swap');
 
+  .alert{
+    color: red;
+  }
+
+  .notice{
+    color: #7ab977;
+  }
+
+  caption,
+  .notice,
+  .alert{
+   //ここからGoogleFonts----------------------------------
+   font-family: 'Abhaya Libre', serif;
+   font-family: 'Alex Brush', cursive;
+   font-family: 'Bad Script', cursive;
+   font-family: 'Ubuntu', sans-serif;
+   //ここまでGoogleFonts----------------------------------
+  font-size: 30px;
+  }
+
   .container {
     white-space: nowrap;
     width: 200%;
