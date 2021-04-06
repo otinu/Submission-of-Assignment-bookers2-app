@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
-
   def index
-     @book = Book.new
-     @books = Book.joins(:user).all
+    @book = Book.new
+    @books = Book.joins(:user).all
   end
 
   def show
@@ -11,7 +10,7 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
-    book.user_id = current_user.id #joinsを使わなくとも、current_userが活用できる場合はこのような方法も可
+    book.user_id = current_user.id # joinsを使わなくとも、current_userが活用できる場合はこのような方法も可
     if book.save
       flash[:notice] = "successfully!"
       redirect_to book_path(book.id)
@@ -29,7 +28,7 @@ class BooksController < ApplicationController
   end
 
   def update
-      @book = Book.find(params[:id])
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "successfully!"
       redirect_to book_path
@@ -50,5 +49,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body, :user_id)
   end
-
 end

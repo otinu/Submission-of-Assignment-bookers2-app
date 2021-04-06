@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @user = current_user
     @users = User.all
@@ -8,18 +7,18 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user.id == current_user.id
-       @user_book = Book.where(user_id: current_user.id)
+      @user_book = Book.where(user_id: current_user.id)
     else
-       @user_book = Book.where(user_id: params[:id])
+      @user_book = Book.where(user_id: params[:id])
     end
   end
 
   def edit
     @user = User.find(params[:id])
-     if current_user.id == @user.id
-     else
+    if current_user.id == @user.id
+    else
       redirect_to user_path(current_user.id)
-     end
+    end
   end
 
   def update
@@ -38,5 +37,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-
 end
