@@ -13,8 +13,17 @@
     <% if user_signed_in? %>
      <div class="container">
        <div class="row">　<!--rowにstyleを適用させてmarginやpaddingを変更することはできなかった-->
-        <div class="col-md-4">
+        <div class="col-md-3">
           <h2><i class="fas fa-book"></i><%= link_to "Bookers", root_path %></h2>
+        </div>
+        <div class="col-md-1"> <!-- ハンバーガー-->
+         <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+           <span></span>
+           <span></span>
+           <span></span>
+          </a>
+         </div>
         </div>
 
          <div class="col-md-8">
@@ -34,16 +43,11 @@
           </div>
 
          </div><!-- col-lg-8 -->
+
        </div><!--row-->
      </div><!--container-->
 
-     <div id="hm-icon"> <!-- ログイン時だけハンバーガー出現-->
-      <a class="menu-trigger" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-     </div>
+
 
     <% else %>
     <div class="container">

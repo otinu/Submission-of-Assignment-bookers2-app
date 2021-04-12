@@ -21,6 +21,12 @@
 
   @charset "UTF-8";
 
+  header table{
+    font-size: 150%;
+  }
+
+
+
   .alert{
     color: red;
   }
@@ -65,7 +71,6 @@
 
   //ハンバーガー ============================//
   #hm-icon {
-  position: fixed;
   right: 20rem;
   top: 0.5rem;
   z-index: 10;
@@ -119,6 +124,5 @@
   color: #fff;
   width: 200%;
   display: none;
-  font-size: 150%;
 }
 
