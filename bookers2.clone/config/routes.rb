@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about', as: 'about'
   devise_for :users
 
-  resources :books, only: [:index, :show, :create, :update, :edit, :destroy]
+  resources :books, only: [:index, :show, :create, :update, :edit, :destroy] do
+    resources :post_comments, only: [:create, :destroy]
+  end
 
   resources :users, only: [:index, :show, :edit, :update]
   patch 'users_path' => 'users#show'

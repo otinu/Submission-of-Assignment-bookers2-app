@@ -14,5 +14,6 @@ class User < ApplicationRecord
   # ここから手動で追記=============================================
   has_many :books, dependent: :destroy
 
+
   # ここまで手動で追記=============================================
 end
