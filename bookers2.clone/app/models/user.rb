@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   # ここから手動で追記=============================================
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 
   # ここまで手動で追記=============================================
