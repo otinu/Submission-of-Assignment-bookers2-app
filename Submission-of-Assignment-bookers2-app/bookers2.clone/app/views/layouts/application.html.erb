@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--GoogleFonts-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %><!--GoogleFonts-->
+    <%=  favicon_link_tag 'book_fav.png', type: 'image/png', sizes: "16x16" %><!-- ファビコン-->
+  </head>
+
+ <header style="background-color: DarkSeaGreen;">
+    <% if user_signed_in? %>
+     <div class="container">
+       <div class="row">　<!--rowにstyleを適用させてmarginやpaddingを変更することはできなかった-->
+        <div class="col-md-3">
+          <h2><i class="fas fa-book"></i><%= link_to "Bookers", root_path %></h2>
+        </div>
+        <div class="col-md-1"> <!-- ハンバーガー-->
+         <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+           <span></span>
+           <span></span>
+           <span></span>
+          </a>
+         </div>
+        </div>
+
+         <div class="col-md-8">
+          <div id="main-menu">
+           <table class="table table-sm">
+            <caption>Let's share our books</caption> <!-- テーブルに見出しを付与できる-->
+                                                    <!-- Googleフォントを適用。上記headタグ内の記述確認&下記の記述をapplication.scssの最下行に追記することで反映-->
+                                                    <!-- @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Alex+Brush&family=Bad+Script&family=Ubuntu:wght@300&display=swap'); -->
+               <tr>
+                <th><i class="fas fa-home"></i><%= link_to "Home", user_path(current_user.id) %></th>
+                <th><i class="fas fa-users"></i><%= link_to "Users", users_path %></th>
+                <th><i class="fas fa-book-open"></i><%= link_to "Books", books_path %></th>
+                <th><i class="fas fa-sign-out-alt"></i><%= link_to "logout",  destroy_user_session_path,  method: :delete %></th>
+               </tr>
+           </table>
+
+          </div>
+
+         </div><!-- col-lg-8 -->
+
+       </div><!--row-->
+     </div><!--container-->
+
+
+
+    <% else %>
+    <div class="container">
+       <div class="row">　<!--rowにstyleを適用させてmarginやpaddingを変更することはできなかった-->
+        <div class="col-md-4">
+          <h2><i class="fas fa-book"></i><%= link_to "Bookers", root_path %></h2>
+        </div>
+        <div class="col-md-8">
+           <table class="table table-hover">
+               <tr>
+                <th><i class="fas fa-home"></i></i><%= link_to "Home", root_path %></th>
+                <th><i class="fas fa-link"></i><%= link_to "About", about_path %></th>
+                <th><i class="fas fa-user-plus"></i></i><%= link_to "sign up",  new_user_registration_path %></th>
+                <th><i class="fas fa-sign-in-alt"></i><%= link_to "login",  new_user_session_path %></th>
+               </tr>
+           </table>
+         </div><!-- col-lg-8 -->
+       </div><!--row-->
+     </div><!--container-->
+    <% end %>
+ </header>
+
+ <div class="notice"><%= notice %></div> <!--フラッシュメッセージ-->
+ <div class="alert"><%= alert %></div>   <!--フラッシュメッセージ-->
+
+ <div class="container">
+  <div class="row">
+   <div class="col-md-auto">
+    <%= yield %>
+   </div>
+  </div>
+ </div>
+  <footer>
+    <p><small>&copy; Otinu</small></p>
+  </footer>
+ </body>
+</html

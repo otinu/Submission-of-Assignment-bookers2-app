@@ -1,0 +1,26 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top_page_login{
+    margin: 1.1rem;
+    text-align: center;
+    background-color: DarkSeaGreen;
+    width: 90%;
+}
+
+.top_page_login:hover {
+    background-color: #728742;
+}
+
+.top_page_signup {
+    margin: 1.1rem;
+    text-align: center;
+    background-color: #b3d0d7;
+    width: 90%;
+}
+
+.top_page_signup:hover {
+    background-color: #6289a4;
+}
+
