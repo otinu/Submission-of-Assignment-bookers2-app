@@ -11,9 +11,8 @@
   </tr>
 </table>
 
-<%= form_with(model: current_user.active_relationships.new, local: true) do |f| %>
-  <div><%= hidden_field_tag :followed_id, user.id %></div>
-  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% unless user == current_user %>
+ <%= render 'follow_form' %>
 <% end %>
 
 <div>
@@ -30,7 +29,8 @@
     followers
   </a>
 </div>  <!-- stats -->
-
- <%= link_to edit_user_path(user.id) do %>
-   <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
- <% end %>
+<% if user == current_user %>
+  <%= link_to edit_user_path(user.id) do %>
+    <i class="fas fa-user-cog fa-3x" style="color: DarkSeaGreen;"></i><br>
+  <% end %>
+<% end %>
