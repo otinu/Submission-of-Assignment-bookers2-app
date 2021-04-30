@@ -1,44 +1,6 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside >
-    <section class="user_info">
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Books:</b> <%= @user.books.count %></span>
-    </section>
-    <section class="stats">
 
-
-      <div class="stats">
-  <a href="<%= follows_user_path(@user) %>">
-    <strong id="follows" class="stat">
-      <%= @user.follows.count %>
-    </strong>
-    follows
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
-</div>  <!-- stats -->
-
-
-
-
-
-
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= user.name %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
-  <div >
+  <div>
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">
@@ -50,6 +12,12 @@
          </li>
         <% end %>
       </ul>
+    <% else %>
+     <% if @title == "Follows" %>
+      <h4>現在、フォロー中のユーザーはおりません</h4>
+     <% else %>
+      <h4>現在、フォローされておりません</h4>
+     <% end %>
     <% end %>
   </div>
 </div>
