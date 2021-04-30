@@ -8,6 +8,9 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  
+  has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent:   :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
