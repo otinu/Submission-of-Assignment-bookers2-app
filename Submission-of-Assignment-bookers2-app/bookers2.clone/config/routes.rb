@@ -11,15 +11,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update]
   patch 'users_path' => 'users#show'
-  
+
   resources :users do
     member do
       get :follows, :followers
     end
   end
-  
+
   resources :relationships, only: [:create, :destroy]
-  
-  
+
   # ここまで手動で追記=============================================
 end

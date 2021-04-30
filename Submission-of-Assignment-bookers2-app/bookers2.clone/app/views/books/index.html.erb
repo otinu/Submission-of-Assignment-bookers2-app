@@ -27,30 +27,22 @@
         <td><%= link_to f.title, book_path(f.id) %></td>
         <td><%= f.body %></td>
         <td>
-
-
          <% if f.favorited_by?(current_user) %>
-        <p>
-       <%= link_to book_favorites_path(f.id), method: :delete do %>
-        ♥<%= f.favorites.count %>
-        <% end %>
-        </p>
-       <% else %>
-        <p>
-        <%= link_to book_favorites_path(f.id), method: :post do %>
-        ♡<%= f.favorites.count %>
-        <% end %>
-        </p>
-       <% end %>
-
-
-
-
-
+          <p>
+           <%= link_to book_favorites_path(f.id), method: :delete do %>
+            ♥<%= f.favorites.count %>
+           <% end %>
+          </p>
+         <% else %>
+          <p>
+           <%= link_to book_favorites_path(f.id), method: :post do %>
+            ♡<%= f.favorites.count %>
+           <% end %>
+          </p>
+         <% end %>
         </td>
         <td> コメント件数：<%= f.post_comments.count %></td>
-       </td>
-      </tr>
+       </tr>
      <% end %>
     </tbody>
    </table>

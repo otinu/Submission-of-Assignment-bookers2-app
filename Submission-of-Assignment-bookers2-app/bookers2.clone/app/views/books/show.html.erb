@@ -27,11 +27,6 @@
         <%= link_to "Destroy", book_path(@book.id), method: :delete, data: { confirm: '削除を実行しますか？', commit: '削除', cancel: 'キャンセル'  } %>
        <% end %>
       </th>
-
-
-
-
-
       <th>
        <% if @book.favorited_by?(current_user) %>
         <p>
@@ -53,37 +48,21 @@
      </tr>
     </table>
      <div class="new-comment">
-
-    <ul>
-      <% @book.post_comments.each do |post_comment| %>
-      <li>
-       <%= post_comment.created_at.strftime('%Y/%m/%d　') %><%= post_comment.comment %>
-        <% if post_comment.user_id == current_user.id %>
-           <%= link_to "　削除", book_post_comment_path(post_comment.book, post_comment), method: :delete %>
-        <% end %>
-      </li>
-      <% end %>
-    </ul>
-
-
-
-
-
-
-    <%= form_with(model:[@book, @post_comment], local: true) do |f| %>
-     <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-     <%= f.submit "送信する" %>
-    <% end %>
-
-
-
-   </div>
-   </div>
-
-
-
-
-
+      <ul>
+       <% @book.post_comments.each do |post_comment| %>
+        <li>
+         <%= post_comment.created_at.strftime('%Y/%m/%d　') %><%= post_comment.comment %>
+         <% if post_comment.user_id == current_user.id %>
+          <%= link_to "　削除", book_post_comment_path(post_comment.book, post_comment), method: :delete %>
+         <% end %>
+        </li>
+       <% end %>
+      </ul>
+     <%= form_with(model:[@book, @post_comment], local: true) do |f| %>
+      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+     <% end %>
+    </div>
   </div><!--row-->
  </div><!--container-->
 

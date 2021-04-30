@@ -15,11 +15,10 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-
-  has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id", dependent:  :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :follows, through: :active_relationships, source: :followed
 
-  has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent:   :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
   # ユーザーをフォローする
@@ -36,8 +35,6 @@ class User < ApplicationRecord
   def follows?(other_user)
     follows.include?(other_user)
   end
-
-
 
   # ここまで手動で追記=============================================
 end
