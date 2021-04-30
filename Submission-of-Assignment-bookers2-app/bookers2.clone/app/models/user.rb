@@ -14,9 +14,12 @@ class User < ApplicationRecord
   # ここから手動で追記=============================================
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id", dependent:  :destroy
-  has_many :follow, through: :active_relationships, source: :followed
+  has_many :follows, through: :active_relationships, source: :followed
+  
+  has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent:   :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 
 
   # ここまで手動で追記=============================================

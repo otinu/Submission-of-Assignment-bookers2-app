@@ -20,3 +20,6 @@ Book.create!(title: "Test",body: "first",user_id: 1)
   body  = "テスト"
   Book.create!(title: title, body: body, user_id: 1)
 end
+
+
+
