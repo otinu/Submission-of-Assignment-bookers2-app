@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  
+  #改めて確認してみると、N + 1問題が発生していることが判明。
+  #改善のためには、結びついているモデルのカラムを参照する際にｈincludsメソッドを用いる必要があるらしい。
   def index
     @book = Book.new
     @books = Book.joins(:user).all
