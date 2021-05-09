@@ -60,7 +60,13 @@
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
       <%= f.submit "送信する" %>
      <% end %>
+
+<!-- SNSへシェアボタンを実装してみた。下記の状態ではTurbolinksの影響でリロードしないと表示されない。 また、下記のコードから直接Turbolinksを無効化することは不可。-->
+<!-- ファビコン + リンク の形で実装するのが無難  -->
+     <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://d9445d47ad8d488b8f10b350a899ba9e.vfs.cloud9.us-east-1.amazonaws.com/books/1" data-color="grey" data-size="large" data-count="false" style="display: none;" data-turbolinks="false" ></div>
+ <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer" data-turbolinks="false"></script>
     </div>
+    
   </div><!--row-->
  </div><!--container-->
 
