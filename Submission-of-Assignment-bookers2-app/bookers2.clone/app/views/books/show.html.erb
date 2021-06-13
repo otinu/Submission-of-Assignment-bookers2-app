@@ -1,0 +1,85 @@
+
+ <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+    <%= render 'users/mypage-edit', user: @book.user %>
+    <%= render 'books/newbook', book: Book %>
+   </div>
+   <div class="col-md-8 offset-md-1">
+    <table class="table">
+     <h2>Book detail</h2>
+      <tr>
+       <th　colspan="2">
+        <%= attachment_image_tag @book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg", size: "40x40" %>
+        <%= link_to @book.user.name, user_path(@book.user.id) %>
+       </th>
+       <th colspan="2">
+        <%= link_to @book.title, edit_book_path(@book.id) %>
+       </th>
+       <th colspan="2"><%= @book.body %></th>
+       <th>
+        <% if @book.user_id == current_user.id %>
+         <%= link_to "Edit", edit_book_path(@book.id) %>
+        <% end %>
+       </th>
+       <th>
+       <% if @book.user_id == current_user.id %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete, data: { confirm: '削除を実行しますか？', commit: '削除', cancel: 'キャンセル'  } %>
+       <% end %>
+      </th>
+
+
+
+
+
+      <th>
+       <% if @book.favorited_by?(current_user) %>
+        <p>
+       <%= link_to book_favorites_path(@book.id), method: :delete do %>
+        ♥<%= @book.favorites.count %>
+        <% end %>
+        </p>
+       <% else %>
+        <p>
+        <%= link_to book_favorites_path(@book.id), method: :post do %>
+        ♡<%= @book.favorites.count %>
+        <% end %>
+        </p>
+       <% end %>
+      </th>
+     </tr>
+    </table>
+     <div class="new-comment">
+    <ul>
+      <% @book.post_comments.each do |post_comment| %>
+      <li>
+       <%= post_comment.created_at.strftime('%Y/%m/%d　　') %><%= post_comment.comment %>
+      </li>
+      <% end %>
+    </ul>
+
+
+
+
+
+
+    <%= form_with(model:[@book, @post_comment], local: true) do |f| %>
+     <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+     <%= f.submit "送信する" %>
+    <% end %>
+
+
+
+   </div>
+   </div>
+
+
+
+
+
+  </div><!--row-->
+ </div><!--container-->
+
+
+
+
