@@ -6,7 +6,8 @@
         "@saveall": true
     },
     "extensions": {
-        "@aws.profile": "profile:default"
+        "@aws.profile": "profile:default",
+        "@git.ignoreLimitWarning": true
     },
     "general": {
         "@stripws": true
